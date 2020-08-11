@@ -1,0 +1,42 @@
+package mb.amazul.webservice.resource;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import mb.amazul.webservice.db.mysql.model.Glpi_users;
+import mb.amazul.webservice.db.mysql.repository.Glpi_usersrepository;
+import mb.amazul.webservice.db.oraclerh.model.Do_funcionarios;
+import mb.amazul.webservice.db.oraclerh.repository.Do_funcionariosRepository;
+
+import java.util.List;
+
+/**
+ * Resource which respond to HTTP requests returning data.
+ *
+ * Repository: <a>https://github.com/heliomf-dev/spring-boot-multiple-databases</a>
+ * @author Hélio Márcio Filho <My GitHub: <a>https://github.com/heliomf-dev</a>>
+ * @version 1.0
+ * @since 1.0
+ * */
+@RestController
+public class TestResource {
+
+    @Autowired
+    private Glpi_usersrepository glpi_usersrepository;
+
+    @Autowired
+    private Do_funcionariosRepository do_funcionariosRepository;
+
+    @GetMapping(value = "/mysql")
+    public ResponseEntity<List<Glpi_users>> testMysql() {
+        return ResponseEntity.ok(glpi_usersrepository.findAll());
+    }
+
+    @GetMapping(value = "/oraclerh")
+    public ResponseEntity<List<Do_funcionarios>> testOracle() {
+        return ResponseEntity.ok(do_funcionariosRepository.findAll());
+    }
+}

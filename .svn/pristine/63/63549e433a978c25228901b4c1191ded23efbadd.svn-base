@@ -1,0 +1,76 @@
+package mb.amazul.webservice.resource;
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import mb.amazul.webservice.db.mysql.model.Glpi_users;
+import mb.amazul.webservice.db.mysql.repository.Glpi_usersrepository;
+import mb.amazul.webservice.db.oraclerh.model.Do_funcionarios;
+import mb.amazul.webservice.db.oraclerh.model.Gn_pessoas;
+import mb.amazul.webservice.db.oraclerh.model.Gn_pessoasJur;
+import mb.amazul.webservice.db.oraclerh.repository.Do_funcionariosRepository;
+import mb.amazul.webservice.db.oraclerh.repository.Gn_pessoasJurRepository;
+import mb.amazul.webservice.db.oraclerh.repository.Gn_pessoasRepository;
+import mb.amazul.webservice.db.pgsqldrupal.model.Users;
+import mb.amazul.webservice.db.pgsqldrupal.repository.UsersRepository;
+import mb.amazul.webservice.db.pgsqlsiaudi.model.Tb_usuario;
+import mb.amazul.webservice.db.pgsqlsiaudi.repository.Tb_usuarioRepository;
+
+
+@RestController
+public class TestResource {
+
+    @Autowired
+    private Glpi_usersrepository glpi_usersrepository;
+
+    @Autowired
+    private Do_funcionariosRepository do_funcionariosRepository;
+    
+    @Autowired
+    private Tb_usuarioRepository tb_usuarioRepository;
+    
+    @Autowired
+    private Gn_pessoasRepository Gn_pessoasRepository;
+    
+    @Autowired
+    private Gn_pessoasJurRepository Gn_pessoasJurRepository;
+    
+    @Autowired
+    private UsersRepository usersRepository;
+
+    @GetMapping(value = "/mysql")
+    public ResponseEntity<List<Glpi_users>> testMysql() {
+        return ResponseEntity.ok(glpi_usersrepository.findAll());
+    }
+
+    @GetMapping(value = "/oraclerh")
+    public ResponseEntity<List<Do_funcionarios>> testOracle() {
+        return ResponseEntity.ok(do_funcionariosRepository.findAll());
+    }
+    
+    @GetMapping(value = "/oraclecorp")
+    public ResponseEntity<List<Gn_pessoas>> testOracleCorp() {
+    	return ResponseEntity.ok(Gn_pessoasRepository.findAll());
+    }
+    
+    @GetMapping(value = "/oraclejur")
+    public ResponseEntity<List<Gn_pessoasJur>> testOracleJur() {
+    	return ResponseEntity.ok(Gn_pessoasJurRepository.findAll());
+    }
+    
+    @GetMapping(value = "/pgsqlsiaudi")
+    public ResponseEntity<List<Tb_usuario>> testPostgres() {
+        return ResponseEntity.ok(tb_usuarioRepository.findAll());
+    }
+    
+    
+    @GetMapping(value = "/pgsqldrupal")
+    public ResponseEntity<List<Users>> testPostgresDrupal() {
+        return ResponseEntity.ok(usersRepository.findAll());
+    }
+}

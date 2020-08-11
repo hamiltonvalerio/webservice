@@ -1,0 +1,11 @@
+package mb.amazul.webservice.db.pgsqlsiaudi.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import mb.amazul.webservice.db.pgsqlsiaudi.model.Tb_usuario;
+
+@Repository
+public interface Tb_usuarioRepository extends JpaRepository<Tb_usuario, Long>{
+
+}

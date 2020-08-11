@@ -1,0 +1,11 @@
+package mb.amazul.webservice.db.oraclerh.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import mb.amazul.webservice.db.oraclerh.model.Do_funcionarios;
+
+@Repository
+public interface Do_funcionariosRepository extends JpaRepository<Do_funcionarios, Long>{
+
+}

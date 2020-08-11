@@ -1,0 +1,22 @@
+# MySQL
+mysql.datasource.jdbc-url=jdbc:mysql://10.28.96.233/glpi_amazul_h
+mysql.datasource.username=root
+mysql.datasource.password=teste
+mysql.datasource.driver-class-name=com.mysql.jdbc.Driver
+
+# Oracle RH + CORP + JUR
+oraclerh.datasource.jdbc-url=jdbc:oracle:thin:@10.28.96.47:1521:benhom
+oraclerh.datasource.username=system
+oraclerh.datasource.password=r#pa2se
+
+#Postgres Siaudi
+pgsqlsiaudi.datasource.jdbc-url=jdbc:postgresql://10.28.76.173:5432/bd_siaudi
+pgsqlsiaudi.datasource.username=usrsiaudi
+pgsqlsiaudi.datasource.password=!@#-usr-siaudi
+pgsqlsiaudi.datasource.driver-class-name=org.postgresql.Driver
+
+#Postgres Drupal
+pgsqldrupal.datasource.jdbc-url=jdbc:postgresql://10.28.96.37:5432/amzdrupal
+pgsqldrupal.datasource.username=postgres
+pgsqldrupal.datasource.password=@m@zu123
+pgsqldrupal.datasource.driver-class-name=org.postgresql.Driver

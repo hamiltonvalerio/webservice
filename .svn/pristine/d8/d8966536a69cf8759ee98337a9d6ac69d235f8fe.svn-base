@@ -1,0 +1,42 @@
+package mb.amazul.webservice.db.oraclerh.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(schema = "RH_AMAZUL", name = "DO_FUNCIONARIOS")
+public class Do_funcionarios implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5330711241083556833L;
+	
+	@Id
+	private Long handle;
+	private String nome;
+	private String cpfnumero;
+	
+	public Long getHandle() {
+		return handle;
+	}
+	public void setHandle(Long handle) {
+		this.handle = handle;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getCpfnumero() {
+		return cpfnumero;
+	}
+	public void setCpfnumero(String cpfnumero) {
+		this.cpfnumero = cpfnumero;
+	}
+	
+}

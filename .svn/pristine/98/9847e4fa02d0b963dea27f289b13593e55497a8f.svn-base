@@ -1,0 +1,11 @@
+package mb.amazul.webservice.db.pgsqldrupal.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import mb.amazul.webservice.db.pgsqldrupal.model.Users;
+
+@Repository
+public interface UsersRepository extends JpaRepository<Users, Long>{
+
+}

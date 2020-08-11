@@ -1,0 +1,11 @@
+package mb.amazul.webservice.db.mysql.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import mb.amazul.webservice.db.mysql.model.Glpi_users;
+
+@Repository
+public interface Glpi_usersrepository extends JpaRepository<Glpi_users, Long>{
+
+}
